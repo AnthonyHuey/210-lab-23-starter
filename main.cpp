@@ -49,9 +49,15 @@ int main()
     cout << "\nUSER CHOICE: " << choice;
 
 
+    i = 1;
+    for (Goat g : mylist)
+    {   
+        cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
+             << " " << g.get_color() << ")";  
+        i++;
+    }
 
 
-    
     return 0;
 }
 
@@ -80,18 +86,19 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
 
 int select_goat(list<Goat> trip) // display the goats, then ask which one.
 {
+    display_trip(trip);
+    
     int choice;
-    int i = 1;
-    for (Goat g : trip)
-    {   
-        cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
-             << " " << g.get_color() << ")"; // something else here. 
-        i++;
-    }
+    cout << "\nWhich goat: ";
+    cin >> choice;
+    cin.ignore();
+    return choice;
 }
 
 void delete_goat(list<Goat> &trip)
 {
+    int choice = select_goat(trip);
+
 
 }
 
@@ -102,6 +109,13 @@ void add_goat(list<Goat> &trip, string [], string [])
 
 void display_trip(list<Goat> trip)
 {
-
+    int i = 1;
+    for (Goat g : trip)
+    {   
+        cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
+             << " " << g.get_color() << ")";  
+        i++;
+    }
+    cout << "\nJust checking i real quick: " << i; // for validation later.
 }
 
