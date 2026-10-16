@@ -1,3 +1,6 @@
+// Anthony Huey - 10/16/2026 - COMSC 210 - Lab 23: Goat Manager 3001
+// Fork the given repository, then follow the 4 tasks, 
+// im not writitng them here, they're on the assignment look there.
 // Goat.h
 
 #ifndef GOAT_H
