@@ -35,9 +35,14 @@ int main()
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
-
-    list<Goat> goats(5);
     
+    Goat test = {names[rand()%SZ_NAMES], rand()%MAX_AGE, colors[rand()%SZ_COLORS]};
+    list<Goat> mylist;
+    mylist.push_back(test);
+
+    list<int> numbers = {5,2,3,1,4};
+    for (int nm : numbers)
+        cout << nm << " ";
     
 
     int choice;
@@ -71,7 +76,7 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
     }
     return choice;
 }
-
+/*
 int select_goat(list<Goat> trip) // display the goats, then ask which one.
 {
     int choice;
@@ -97,4 +102,4 @@ void display_trip(list<Goat> trip)
 {
 
 }
-
+*/
