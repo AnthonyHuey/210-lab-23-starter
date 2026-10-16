@@ -32,4 +32,8 @@ public:
     // write overloaded < operator for the std::list
 };
 
+int main_menu()
+{
+    cout << "\t*** GOAT MANAGER 3001 ***";
+}
 #endif
