@@ -36,6 +36,10 @@ int main()
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    list<Goat> goats(5);
+    
+    
+
     int choice;
     choice = main_menu();
 
@@ -71,11 +75,10 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
 int select_goat(list<Goat> trip) // display the goats, then ask which one.
 {
     int choice;
-   
     for ( auto it = trip.begin(); it != trip.end(); it++)
     {   
         int i = 1;
-        cout << "[" << i << "]" ;// something else here. 
+        cout << "[" << i << "]" << *it ; // something else here. 
         i++;
     }
 }
