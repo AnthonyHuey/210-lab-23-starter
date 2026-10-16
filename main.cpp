@@ -37,13 +37,18 @@ int main()
     fin1.close();
 
     list<Goat> mylist;
- 
-   
     int choice;
+
     while (choice != 4)
     {
         choice = main_menu();
-        
+        switch (choice)
+        {
+        case 1: add_goat(mylist, names, colors); break;
+        case 2: delete_goat(mylist); break;
+        case 3: display_trip(mylist); break;
+        case 4: cout << "Goodbye."; break;
+        }
     }
   
     return 0;
@@ -85,8 +90,16 @@ int select_goat(list<Goat> trip) // display the goats, then ask which one.
 
 void delete_goat(list<Goat> &trip) // find goat, delete it
 {
-    int choice = select_goat(trip);
-    // could probably validate here aswell, < 0 or > size. later
+    again = 1;
+    int choice;
+    while (again != 0) // validate if choice is < 0 or > size.
+    {
+        choice = select_goat(trip);
+        if (choice < 1 || choice > trip.size())
+            cout <<"\nInvalid";
+        else
+            again = 0;
+    }
     auto it = trip.begin();
     advance(it, choice - 1); 
     trip.erase(it);
