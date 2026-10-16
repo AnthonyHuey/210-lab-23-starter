@@ -45,19 +45,10 @@ int main()
     }
    
     int choice;
-    choice = main_menu();
-    cout << "\nUSER CHOICE: " << choice;
+   // choice = main_menu();
+   // cout << "\nUSER CHOICE: " << choice;
 
-
-    i = 1;
-    for (Goat g : mylist)
-    {   
-        cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
-             << " " << g.get_color() << ")";  
-        i++;
-    }
-
-
+    delete_goat(mylist);
     return 0;
 }
 
@@ -95,19 +86,23 @@ int select_goat(list<Goat> trip) // display the goats, then ask which one.
     return choice;
 }
 
-void delete_goat(list<Goat> &trip)
+void delete_goat(list<Goat> &trip) // find goat, delete it
 {
     int choice = select_goat(trip);
-
-
+    // could probably validate here aswell, < 0 or > size. later
+    auto it = trip.begin();
+    advance(it, choice - 1); 
+    trip.erase(it);
+    cout << endl;
+    display_trip(trip);
 }
 
-void add_goat(list<Goat> &trip, string [], string [])
+void add_goat(list<Goat> &trip, string n[], string c[]) // add goat
 {
-
+   
 }
 
-void display_trip(list<Goat> trip)
+void display_trip(list<Goat> trip) // display goats
 {
     int i = 1;
     for (Goat g : trip)
