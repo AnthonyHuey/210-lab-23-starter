@@ -41,10 +41,12 @@ int main()
 
     cout << "\nUSER CHOICE: " << choice;
 
+
     return 0;
 }
+
 int main_menu() // nvm about putting it in the header, saw the function up top.
-{               // feel like it woul dbe way easier to just loop this function -
+{               // feel like it would be way easier to just loop this function -
     int choice; // - rather then it just return the user choice, oh well.
     again = 1;
     while (again != 0)
@@ -64,5 +66,32 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
         }
     }
     return choice;
+}
+
+int select_goat(list<Goat> trip) // display the goats, then ask which one.
+{
+    int choice;
+   
+    for ( auto it = trip.begin(); it != trip.end(); it++)
+    {   
+        int i = 1;
+        cout << "[" << i << "]" ;// something else here. 
+        i++;
+    }
+}
+
+void delete_goat(list<Goat> &trip)
+{
+
+}
+
+void add_goat(list<Goat> &trip, string [], string [])
+{
+
+}
+
+void display_trip(list<Goat> trip)
+{
+
 }
 
