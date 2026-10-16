@@ -17,7 +17,7 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
-bool again = 1; // is this for the main menu function?
+bool again = 1; // using this for the main menu, and delete loops.
 
 int main() 
 {
@@ -103,15 +103,15 @@ void delete_goat(list<Goat> &trip) // find goat, delete it
     auto it = trip.begin();
     advance(it, choice - 1); 
     trip.erase(it);
-    cout << endl;
-    display_trip(trip);
 }
 
 void add_goat(list<Goat> &trip, string n[], string c[]) // add goat
 {
-    Goat goat = {n[rand()%SZ_NAMES], rand()%MAX_AGE, c[rand()%SZ_COLORS]};
-    trip.push_back(goat); // i'll fix the ranges later. i know age is 0-19
-}
+    Goat goat = {n[rand()%SZ_NAMES], rand() % (MAX_AGE - MIN+1) + MIN, 
+                 c[rand()%SZ_COLORS]};
+    trip.push_back(goat); // that should be 20, although you could just set - 
+    cout << " Adding goat..."; //- MAX_AGE to 21, formula is more fun.
+}                        
 
 void display_trip(list<Goat> trip) // display goats
 {
