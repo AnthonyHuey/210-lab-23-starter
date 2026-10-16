@@ -8,7 +8,8 @@
 #include <iostream>
 using namespace std;
 
-class Goat {
+class Goat 
+{
 private:
     string name;
     int age;
@@ -16,6 +17,9 @@ private:
 public: 
     Goat()                          { name = ""; age = 0; color = ""; }
     // write three more constructors
+    Goat(string n) {name = n;}
+    Goat(string n, int a) {name = n; age = a;}
+    Goat(string n, int a, string c) {name = n; age = a; color = c;}
 
     // setters and getters
     void set_name(string n)         { name = n; };
