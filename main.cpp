@@ -17,10 +17,11 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
+bool again = 1; // is this for the main menu function?
+
 int main() 
 {
     srand(time(0));
-    bool again;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -35,10 +36,18 @@ int main()
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    // building the main menu here to test but ill move it to the header later.
-    
     int choice;
-    while (choice != 4)
+    choice = main_menu();
+
+    cout << "\nUSER CHOICE: " << choice;
+
+    return 0;
+}
+int main_menu() // nvm about putting it in the header, saw the function up top.
+{               // feel like it woul dbe way easier to just loop this function -
+    int choice; // - rather then it just return the user choice, oh well.
+    again = 1;
+    while (again != 0)
     {
         cout << "\t*** GOAT MANAGER 3001 ***";
         cout << "\n[1] Add a goat \n[2] Delete a goat";
@@ -47,19 +56,18 @@ int main()
         cin.ignore();
         switch (choice)
         {
-        case 1:
-            
-        case 2:
+        case 1: again = 0;
 
-        case 3:
+        case 2: again = 0;
 
-        case 4:
+        case 3: again = 0;
+
+        case 4: again = 0;
 
         default:
-            cout << "Invalid\n";
+            cout << "\nInvalid\n";
         }
     }
-
-    return 0;
+    return choice;
 }
 
