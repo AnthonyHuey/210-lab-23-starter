@@ -9,7 +9,7 @@
 #include "Goat.h"
 using namespace std;
 
-const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
+const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20, MAX = 5;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
@@ -36,25 +36,22 @@ int main()
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    Goat test = {names[rand()%SZ_NAMES], rand()%MAX_AGE, colors[rand()%SZ_COLORS]};
     list<Goat> mylist;
-    mylist.push_back(test);
-    for (Goat g : mylist)
+    for (int i = 0; i < MAX; i++)
     {
-        cout << g.get_age() << " " << g.get_color() << " " << g.get_name();
+        Goat test = {names[rand()%SZ_NAMES], rand()%MAX_AGE, 
+                    colors[rand()%SZ_COLORS]};
+         mylist.push_back(test);
     }
-
-    list<int> numbers = {5,2,3,1,4};
-    for (int nm : numbers)
-        cout << nm << " ";
-    
-
+   
     int choice;
     choice = main_menu();
-
     cout << "\nUSER CHOICE: " << choice;
 
 
+
+
+    
     return 0;
 }
 
@@ -64,7 +61,7 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
     again = 1;
     while (again != 0)
     {
-        cout << "\t*** GOAT MANAGER 3001 ***";
+        cout << "\n\t*** GOAT MANAGER 3001 ***";
         cout << "\n[1] Add a goat \n[2] Delete a goat";
         cout << "\n[3] List goats \n[4] Quit \nChoice --> ";
         cin >> choice;
@@ -80,14 +77,15 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
     }
     return choice;
 }
-/*
+
 int select_goat(list<Goat> trip) // display the goats, then ask which one.
 {
     int choice;
-    for ( auto it = trip.begin(); it != trip.end(); it++)
+    int i = 1;
+    for (Goat g : trip)
     {   
-        int i = 1;
-        cout << "[" << i << "]" << *it ; // something else here. 
+        cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
+             << " " << g.get_color() << ")"; // something else here. 
         i++;
     }
 }
@@ -106,4 +104,4 @@ void display_trip(list<Goat> trip)
 {
 
 }
-*/
+
