@@ -35,10 +35,14 @@ int main()
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
-    
+
     Goat test = {names[rand()%SZ_NAMES], rand()%MAX_AGE, colors[rand()%SZ_COLORS]};
     list<Goat> mylist;
     mylist.push_back(test);
+    for (Goat g : mylist)
+    {
+        cout << g.get_age() << " " << g.get_color() << " " << g.get_name();
+    }
 
     list<int> numbers = {5,2,3,1,4};
     for (int nm : numbers)
