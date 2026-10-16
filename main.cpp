@@ -56,16 +56,11 @@ int main_menu() // nvm about putting it in the header, saw the function up top.
         cin.ignore();
         switch (choice)
         {
-        case 1: again = 0;
-
-        case 2: again = 0;
-
-        case 3: again = 0;
-
-        case 4: again = 0;
-
-        default:
-            cout << "\nInvalid\n";
+        case 1: again = 0; break;
+        case 2: again = 0; break;
+        case 3: again = 0; break; 
+        case 4: again = 0; break;
+        default: cout << "Invalid\n"; 
         }
     }
     return choice;
