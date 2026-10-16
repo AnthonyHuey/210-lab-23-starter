@@ -9,7 +9,7 @@
 #include "Goat.h"
 using namespace std;
 
-const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20, MAX = 5;
+const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20, MIN = 0;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
@@ -37,18 +37,15 @@ int main()
     fin1.close();
 
     list<Goat> mylist;
-    for (int i = 0; i < MAX; i++)
-    {
-        Goat test = {names[rand()%SZ_NAMES], rand()%MAX_AGE, 
-                    colors[rand()%SZ_COLORS]};
-         mylist.push_back(test);
-    }
+ 
    
     int choice;
-   // choice = main_menu();
-   // cout << "\nUSER CHOICE: " << choice;
-
-    delete_goat(mylist);
+    while (choice != 4)
+    {
+        choice = main_menu();
+        
+    }
+  
     return 0;
 }
 
@@ -99,18 +96,18 @@ void delete_goat(list<Goat> &trip) // find goat, delete it
 
 void add_goat(list<Goat> &trip, string n[], string c[]) // add goat
 {
-   
+    Goat goat = {n[rand()%SZ_NAMES], rand()%MAX_AGE, c[rand()%SZ_COLORS]};
+    trip.push_back(goat); // i'll fix the ranges later. i know age is 0-19
 }
 
 void display_trip(list<Goat> trip) // display goats
 {
-    int i = 1;
+    int i = 0;
     for (Goat g : trip)
     {   
+        i++;
         cout << "\n[" << i << "] " << g.get_name() << "(" << g.get_age()
              << " " << g.get_color() << ")";  
-        i++;
     }
-    cout << "\nJust checking i real quick: " << i; // for validation later.
 }
 
